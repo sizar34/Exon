@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('Canada Deals Online Search Tests', () => {
     const searchTerms = ['Keyboard', 'Shower Carpet', 'Air Fryer'];
   
@@ -20,7 +18,6 @@ describe('Canada Deals Online Search Tests', () => {
         searchTerms.forEach((term) => {
           cy.get('input.block[placeholder="Search"]').as('searchInput')
             .type(term)
-           // .type('{enter}')
            .get('.suggestion-template').first().should('contain', term)
             .get('@searchInput').clear();
         });
